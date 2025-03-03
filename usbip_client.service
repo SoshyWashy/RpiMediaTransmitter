@@ -1,12 +1,15 @@
 [Unit]
 Description=USBIP Client
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/local/bin/usbip_attach.sh
-ExecStop=/usr/local/bin/usbip_detach.sh
+StandardOutput=append:/tmp/usbip_client.log
+StandardError=append:/tmp/usbip_client.log
 
 [Install]
 WantedBy=multi-user.target
+
