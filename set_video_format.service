@@ -1,0 +1,11 @@
+[Unit]
+Description=Set Video Format for HDMI Capture Card
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/local/bin/set_video_format.sh
+Restart=on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target
